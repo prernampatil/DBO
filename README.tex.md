@@ -4,7 +4,7 @@ We present codes to solve stochastic partial differential equations using the dy
 
 **Case I: Stochastic linear advection equation**
 
-$$ \frac{\partial u}{\partial t} + V(\omega) \frac{\partial u}{\partial x} &= 0, \qquad \quad   x \in [0, 2\pi] \quad \mbox{and} \quad  t\in[0,t_f] $$
+$$ \frac{\partial u}{\partial t} + V(\omega) \frac{\partial u}{\partial x} = 0 $$
 
 **Case II: Stochastic Burgers' equation with manufactured solution** 
 
