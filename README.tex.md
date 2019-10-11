@@ -22,14 +22,9 @@ $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
 
 <img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_3/VarError.png" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/VarError2PI.png" alt="Mean Error" width="430"/>
 
-<video width="320" height="200" controls preload> 
-    <source src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_3/SpatialModes.mov"></source> 
-    <source src="video.webm"></source> 
-</video>
-<video width="320" height="200" controls preload> 
-    <source src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_5/SpatialModes.mov"></source> 
-    <source src="video.webm"></source> 
-</video>
+<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_3/SpatialModes.gif" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_5/SpatialModes.gif" alt="Mean Error" width="430"/>
+
+<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Phasespace/epsilon10_3/Phasespace.gif" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Phasespace/epsilon10_5/Phasespace.gif" alt="Mean Error" width="430"/>
 
 
 
