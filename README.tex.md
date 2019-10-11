@@ -6,12 +6,13 @@ We present codes to solve stochastic partial differential equations using the dy
 
 $$ \frac{\partial u}{\partial t} + V(\omega) \frac{\partial u}{\partial x} = 0 \quad \qquad x \in [0, 2\pi] \quad \mbox{and} \quad  t\in[0,t_f],\\$$
 $$          u(x,0) &= \sin(x), \quad \qquad x \in [0, 2\pi]$$
-![picture](https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/LinearAdvection/ErrorPlots/MeanError.eps)
+![MeanError](https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/LinearAdvection/ErrorPlots/MeanError.pdf)
 
 **Case II: Stochastic Burgers' equation with manufactured solution** 
 
 $$ \frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} &= \nu \frac{\partial^2 u}{\partial x^2} + f(x,t; \omega), \quad \qquad x \in [0, 2\pi] \quad \mbox{and} \quad  t\in[0,t_f] \\$$
 $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
+![VarianceError](https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/LinearAdvection/ErrorPlots/VarError.pdf)
 
 **Case III: Burgers' equation with stochastic forcing**
 
