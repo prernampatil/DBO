@@ -4,11 +4,15 @@ We present codes to solve stochastic partial differential equations using the dy
 
 **Case I: Stochastic linear advection equation**
 
-<p align="center"><img src="/tex/a17afb934556ccb6ac363e10fb675e99.svg?invert_in_darkmode&sanitize=true" align=middle width=339.5326275pt height=33.81208709999999pt/></p>
+<p align="center"><img src="/tex/e89203d4cbd3e48d17eb3e9847d258e3.svg?invert_in_darkmode&sanitize=true" align=middle width=381.80437844999994pt height=33.81208709999999pt/></p>
 <p align="center"><img src="/tex/32a4b61e1a4ac9bf33c73af722c2721a.svg?invert_in_darkmode&sanitize=true" align=middle width=240.34051635pt height=16.438356pt/></p>
 
 **Case II: Stochastic Burgers' equation with manufactured solution** 
 
-<p align="center"><img src="/tex/21703046ad19c0b8800294d71c78b83d.svg?invert_in_darkmode&sanitize=true" align=middle width=629.09966955pt height=35.77743345pt/></p>
+<p align="center"><img src="/tex/44d12742168b4ed3896f58fdb3598e74.svg?invert_in_darkmode&sanitize=true" align=middle width=422.56638929999997pt height=35.77743345pt/></p>
+<p align="center"><img src="/tex/7024eb9f8cc61b56e8dce619f795a035.svg?invert_in_darkmode&sanitize=true" align=middle width=251.28220095pt height=16.438356pt/></p>
 
 **Case III: Burgers' equation with stochastic forcing**
+
+<p align="center"><img src="/tex/f0b80e3dd2ab0abdb6d34bfda401b06e.svg?invert_in_darkmode&sanitize=true" align=middle width=521.3261954999999pt height=35.77743345pt/></p>
+<p align="center"><img src="/tex/477118064dc224717939754fedd32ed6.svg?invert_in_darkmode&sanitize=true" align=middle width=239.4100929pt height=16.438356pt/></p>
