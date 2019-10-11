@@ -14,7 +14,7 @@ We present codes to solve stochastic partial differential equations using the dy
 
 <p align="center"><img src="/tex/f4ef5de711506705c25727de60d8ef1b.svg?invert_in_darkmode&sanitize=true" align=middle width=471.8815332pt height=35.77743345pt/></p>
 <p align="center"><img src="/tex/7024eb9f8cc61b56e8dce619f795a035.svg?invert_in_darkmode&sanitize=true" align=middle width=251.28220095pt height=16.438356pt/></p>
-![VarianceError](https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/LinearAdvection/ErrorPlots/VarError.pdf)
+![VarianceError](https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/LinearAdvection/ErrorPlots/VarError.pdf?raw=true)
 
 **Case III: Burgers' equation with stochastic forcing**
 
