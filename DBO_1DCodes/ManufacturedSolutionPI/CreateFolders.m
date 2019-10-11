@@ -9,8 +9,8 @@ else
     cd ErrorPlots
     if(~isfolder(epname))
         mkdir(epname)
-        cd ../
     end
+    cd ../
 end
 if(~isfolder('Phasespace'))
     mkdir('Phasespace');
@@ -21,8 +21,8 @@ else
     cd Phasespace
     if(~isfolder(epname))
         mkdir(epname)
-        cd ../
     end
+    cd ../
 end
 if(~isfolder('Basisplots'))
     mkdir('Basisplots');
@@ -33,7 +33,7 @@ else
     cd Basisplots
     if(~isfolder(epname))
         mkdir(epname)
-        cd ../
     end
+    cd ../
 end
 end

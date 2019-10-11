@@ -20,9 +20,9 @@ end
 
 [E,D,Et] = svd(C0);
 
-u0=sqrt(D)*E'*U0';
-y0 =inv(sqrt(D))*E'*Y0';
+u0 = sqrt(D)*E'*U0';
+y0 = inv(sqrt(D))*E'*Y0';
 u0 = u0';
-y0= y0';
+y0 = y0';
 
 end

@@ -1,5 +1,5 @@
 % Code to solve the Stochastic Burgers' equation
-% Results are compared for 1.) DO 2.) DBO 3.) Analytical solution
+% Results are compared for 1.) DO 2.) PI-DO 3.) DBO 4.) Analytical solution
 % Code modified for DBO by: Prerna Patil
 % Original DO Code        : Hessam Babaee
 % Written on              : 18th Jan 2019
@@ -12,14 +12,18 @@ clear global
 
 %% Problem set-up
 LW = 'linewidth';
-global RGB1 RGB2 RGB3
+global RGB1 RGB2 RGB3 RGB4 RGB5
 RGB1 = [0  113 188]/norm([0 113 188]);
 RGB2 = [216 82 24 ]/norm([216 82 24]);
 RGB3 = [0 153 153 ]/norm([0 153 153]);
+RGB4 = [38, 115, 77]/norm([38, 115, 77]);
+RGB5 = [122, 0, 153]/norm([122, 0, 153]);
 
 global w_n s1x c1x s2x c2x
-global Y du pu dubar pubar x wp xr wr nu C Nr
+global Y du dupi pu dubar dubarpi pubar x wp xr wr nu C Nr
 global epsilon epname
+global tol_PI
+tol_PI = 10^-10;
 
 epsilon = 10^-3;
 if(epsilon == 10^-5)
@@ -63,7 +67,7 @@ nu = 0.05;               % diffusion coefficient
 x   = L*(0:Ns-1)'/Ns;    % collocation points
 wp  = L/Ns*ones(length(x),1);
 t0  = 0.01;
-tf  = 2*pi;              % final time
+tf  = 3*pi;              % final time
 dt  = 0.001;
 nTimeStep  = ceil((tf-t0) / dt);
 
@@ -80,6 +84,15 @@ du    = UDO_exact(t0);     du = du(x,:);
 ndY    = zeros(Nr, N);
 ndu    = zeros(Ns, N);
 ndubar = zeros(Ns, 1);
+
+% Initialization for PI-DO
+dubarpi = u_exact(t0);       dubarpi = dubarpi(x,:);
+dYpi    = YDO_exact(t0);
+dupi    = UDO_exact(t0);     dupi = dupi(x,:);
+
+ndYpi    = zeros(Nr, N);
+ndupi    = zeros(Ns, N);
+ndubarpi = zeros(Ns, 1);
 
 % Intialize for DBO
 [npu, npSigma, npY] = getDBO(du, dY, wr, wp);
@@ -105,15 +118,19 @@ Q = diag(sqrt(diag(inv_cov_bu)));
 tic;
 n=1;
 
-BO = true;
-DO = true;
-DBO= true;
+BO   = true;
+DO   = true;
+PIDO = true;
+DBO  = true;
 t3=0;
 
 % Declare the variables for error
 % DO
 Errord = zeros(1, nTimeStep);
 Error_vard = zeros(1, nTimeStep);
+% PI-DO
+Errordpi = zeros(1, nTimeStep);
+Error_vardpi = zeros(1, nTimeStep);
 %DBO
 Error = zeros(1, nTimeStep);
 Error_var = zeros(1, nTimeStep);
@@ -121,12 +138,12 @@ Error_var = zeros(1, nTimeStep);
 Errorp = zeros(1, nTimeStep);
 Error_varp = zeros(1, nTimeStep);
 % Declare variables for Eigenvalues
-EigDO = zeros(N, nTimeStep);
-EigBO = zeros(N, nTimeStep);
-EigDBO= zeros(N, nTimeStep);
+EigDO   = zeros(N, nTimeStep);
+EigDOpi = zeros(N, nTimeStep);
+EigBO   = zeros(N, nTimeStep);
+EigDBO  = zeros(N, nTimeStep);
 while n <= nTimeStep
     
-    cov_dy = eig(ComputeCovBasis(ndY,wr));
     if(BO)
         cov_bu = ComputeCovBasis(bu,wp);
     end
@@ -153,6 +170,7 @@ while n <= nTimeStep
         ndY		= dY    + dt*(rhs_dY1   +4*rhs_dY2   +rhs_dY3)/6.0;
         
         C=ComputeCovBasis(ndY,wr);
+        cov_dy = eig(C);
         clear rhs_dubar1 rhs_dubar2 rhs_dubar3
         clear rhs_du1 rhs_du2 rhs_du3
         clear rhs_dY1 rhs_dy2 rhs_dy3
@@ -160,6 +178,40 @@ while n <= nTimeStep
         % Enforcing the zero mean condition on the Y coeffs
         for i=1:N
             ndY(:,i) = ndY(:,i) - sum(ndY(:,i).*wr);
+        end
+    end
+    % Evolution equations for PI-DO
+    % RK3 time stepping
+    if(PIDO)
+        t1 = dt * (n-1)+t0;
+        [rhs_dubarpi1, rhs_dupi1, rhs_dYpi1, dupi, dYpi]   = compute_rhs_dopi(dubarpi, dupi, dYpi, N, Ns, Nr, xr, wr, wp, t1, nu);
+        
+        t2 = dt * (n-1/2)+t0;
+        dubarpi2 	= dubarpi + dt*rhs_dubarpi1/2.0;
+        dupi2		= dupi    + dt*rhs_dupi1/2.0;
+        dYpi2		= dYpi    + dt*rhs_dYpi1/2.0;
+        [rhs_dubarpi2, rhs_dupi2, rhs_dYpi2, dupi2, dYpi2] = compute_rhs_dopi(dubarpi2, dupi2, dYpi2, N, Ns, Nr, xr, wr, wp, t2, nu);
+        
+        t3 = dt * n+t0;
+        dubarpi3 	= dubarpi - dt*rhs_dubarpi1 + 2*dt*rhs_dubarpi2;
+        dupi3		= dupi    - dt*rhs_dupi1    + 2*dt*rhs_dupi2;
+        dYpi3		= dYpi    - dt*rhs_dYpi1    + 2*dt*rhs_dYpi2;
+        [rhs_dubarpi3, rhs_dupi3, rhs_dYpi3, dupi3, dYpi3] = compute_rhs_dopi(dubarpi3, dupi3, dYpi3, N, Ns, Nr, xr, wr, wp, t3, nu);
+        
+        ndubarpi 	= dubarpi + dt*(rhs_dubarpi1+ 4*rhs_dubarpi2+ rhs_dubarpi3)/6.0;
+        ndupi		= dupi    + dt*(rhs_dupi1   + 4*rhs_dupi2   + rhs_dupi3)/6.0;
+        ndYpi		= dYpi    + dt*(rhs_dYpi1   + 4*rhs_dYpi2   + rhs_dYpi3)/6.0;
+        
+        Cpi=ComputeCovBasis(ndYpi,wr);
+        [Cpi, EYYpi_inv, ndYpi] = pseudoinv(Cpi, ndYpi);
+        cov_dypi = sort(eig(Cpi));
+        clear rhs_dubarpi1 rhs_dubarpi2 rhs_dubarpi3
+        clear rhs_dupi1 rhs_dupi2 rhs_dupi3
+        clear rhs_dYpi1 rhs_dypi2 rhs_dypi3
+        clear dupi2 dupi3 dYpi2 dYpi3 dubarpi2 dubarpi3
+        % Enforcing the zero mean condition on the Y coeffs
+        for i=1:N
+            ndYpi(:,i) = ndYpi(:,i) - sum(ndYpi(:,i).*wr);
         end
     end
     % Evolution equations for BO
@@ -231,26 +283,27 @@ while n <= nTimeStep
         
         % Enforce gram schmidt condition on pY and pu
         [npY, npu] = gramSchmidt(npY, npu);
-        
         cov_p = eig(npSigma*npSigma');
     end
     
     % Exact solution for DO
     % Using the analytical equations
-    t3 = double(t3);
-    ue = u_exact(t3);    ue = ue(x);
-    
-    due = UDO_exact(t3);  due = due(x,:);
-    dYe = YDO_exact(t3);
-    
+    if(DO || PIDO)
+        t3 = double(t3);
+        ue = u_exact(t3);     ue = ue(x);
+        due = UDO_exact(t3);  due = due(x,:);
+        dYe = YDO_exact(t3);
+    end
     % Exact solutions for the DBO equations:
     % Obtained using transformations DO->DBO
+    if(DBO)
     [pue, pSigmae, pYe] = getDBO(due, dYe, wr, wp);
-    
+    end
     % Exact solutions for the BO equations:
     % Obtained using transformations DO->BO
+    if(BO)
     [bue, bYe] = getBO(due, dYe, wr, wp);
-    
+    end
     % Calculate the error
     % L_2 norm for the mean
     % Frobenius norm for the variance
@@ -260,6 +313,17 @@ while n <= nTimeStep
         err_var1      = ndu*ndY' - due*dYe';
         derr_var      = err_var1.*err_var1;
         Error_vard(n) = sqrt(wp'*derr_var*wr);
+        EigDO(:,n) = cov_dy;
+    
+    end
+    if(PIDO)
+        dpierr_mean     = ndubarpi - ue;
+        Errordpi(n)     = sqrt(dpierr_mean'*(wp.*dpierr_mean));
+        err_varpi1      = ndupi*ndYpi' - due*dYe';
+        dpierr_var      = err_varpi1.*err_varpi1;
+        Error_vardpi(n) = sqrt(wp'*dpierr_var*wr);
+        EigDOpi(:,n)    = cov_dypi;
+    
     end
     if(BO)
         err_mean      = nbubar - ue;
@@ -267,6 +331,8 @@ while n <= nTimeStep
         err_var2      = nbu*nbY' - bue*bYe';
         err_var       = err_var2.*err_var2;
         Error_var(n)  = sqrt(wp'*err_var*wr);
+        EigBO(:,n) = diag(cov_bu);
+    
     end
     if(DBO)
         perr_mean     = npubar - ue;
@@ -274,16 +340,13 @@ while n <= nTimeStep
         err_var3      = npu*npSigma*npY' - pue*pSigmae*pYe';
         perr_var      = err_var3.*err_var3;
         Error_varp(n) = sqrt(wp'*perr_var*wr);
+        EigDBO(:,n) = cov_p;
     end
-    
-    % Eigenvalues for all the methods
-    EigDO(:,n) = cov_dy;
-    EigBO(:,n) = diag(cov_bu);
-    EigDBO(:,n) = cov_p;
     
     % plot the spatial and stochastic basis
     if(mod(n,20)==0)
         % Compute the covaraince matrix for BO
+        if(BO)
         C0 = zeros(N,N);
         for i=1:N
             for j=1:N
@@ -291,25 +354,31 @@ while n <= nTimeStep
             end
         end
         [E,D,Et] = svd(C0);
+        end
         figure(1)
         clf
         subplot(1,2,1)
-        PlotSpatialModes(DO, BO, DBO, D, E, nbu, ndu, npu, pue,1);
+        PlotSpatialModes(DO,PIDO, BO, DBO, D, E, nbu, ndu,ndupi, npu, pue,1);
         title('Physical space basis (Mode 1)')
-        
-        
+        if(ismember(n,Snapshots))
+            fname = sprintf('Basisplots/%s/PhyBasisMode1_%d',epname,n);
+            print(fname,'-depsc');
+        end
         subplot(1,2,2)
-        PlotSpatialModes(DO, BO, DBO, D, E, nbu, ndu, npu, pue,2);
+        PlotSpatialModes(DO,PIDO, BO, DBO, D, E, nbu, ndu,ndupi, npu, pue,2);
         title('Physical space basis (Mode 2)')
         set(gcf,'Position',[100 100 1000 500])
         if(ismember(n,Snapshots))
-            fname = sprintf('Basisplots/%s/PhyBasisMode_%d',epname,n);
+            fname = sprintf('Basisplots/%s/PhyBasisMode2_%d',epname,n);
             print(fname,'-depsc');
         end
-        frame = getframe(gcf);
-        writeVideo(writerObj2,frame);
+        if(videoOutputrequired)
+            frame = getframe(gcf);
+            writeVideo(writerObj2,frame);
+        end
         
         % Compute the reduced covariance matrix from DO
+        if(DO)
         C0 = zeros(N,N);
         for i=1:N
             for j=1:N
@@ -318,16 +387,34 @@ while n <= nTimeStep
         end
         [E,D,Et] = svd(C0);
         YBO_1 = (inv(sqrt(D))*E'*ndY')'; % Converted from DO
+        end
+        if(DBO)
         YBO_2 = npY;
+        end
+        % Compute the reduced covariance matrix from DO
+        if(PIDO)
+        C0 = zeros(N,N);
+        clear E D Et
+        for i=1:N
+            for j=1:N
+                C0(i,j) = sum(ndYpi(:,i) .* ndYpi(:,j) .* wr);
+            end
+        end
+        [E,D,Et] = svd(C0);
+        YBOpi_1 = (inv(sqrt(D))*E'*ndYpi')'; % Converted from DO
+        end
         
         figure(3)
-        PlotPhasespace(DO, BO, DBO,  YBO_1, nbY, YBO_2, bYe);
+        PlotPhasespace(DO, PIDO, BO, DBO,  YBO_1, YBOpi_1, nbY, YBO_2, bYe);
         if(ismember(n,Snapshots))
             fname = sprintf('Phasespace/%s/Phasespace_%d',epname,n);
             print(fname,'-depsc');
+            saveas(gcf, fname, 'fig')
         end
-        frame = getframe(gcf);
-        writeVideo(writerObj1,frame);
+        if(videoOutputrequired)
+            frame = getframe(gcf);
+            writeVideo(writerObj1,frame);
+        end
     end
     
     clear ue bue bYe due dYe pue pSigmae pYe
@@ -352,6 +439,14 @@ while n <= nTimeStep
         dubar = ndubar;
         du    = ndu;
     end
+    if(PIDO)
+        % DO update
+        Ypi     = ndYpi;
+        Upi     = ndupi;
+        dYpi    = ndYpi;
+        dubarpi = ndubarpi;
+        dupi    = ndupi;
+    end
     if(DBO)
         % DBO update
         pY     = npY;
@@ -366,13 +461,15 @@ while n <= nTimeStep
     
     n=n+1;	% necessary for while statement
 end
-% Clode the video files
-close(writerObj1);
-close(writerObj2);
-fname = sprintf('Phasespace/%s',epname);
-movefile('Phasespace.avi', fname);
-fname = sprintf('Basisplots/%s',epname);
-movefile('SpatialModes.avi', fname);
+if(videoOutputrequired)
+    % Clode the video files
+    close(writerObj1);
+    close(writerObj2);
+    fname = sprintf('Phasespace/%s',epname);
+    movefile('Phasespace.avi', fname);
+    fname = sprintf('Basisplots/%s',epname);
+    movefile('SpatialModes.avi', fname);
+end
 toc
 figure(4)
 % Calculate the eigenvalues
@@ -380,7 +477,7 @@ tt = linspace(t0,tf,nTimeStep);
 Lambda(:,1) = (4.5 + sin(tt')).^2;
 Lambda(:,2) = (epsilon*(1.5 + cos(3*tt'))).^2;
 semilogy(tt, Lambda,'-k', LW, 1.5);
-hold on
+
 if(BO)
     semilogy(tt, EigBO, ':','color', RGB1, LW, 2.5);
     hold on
@@ -390,18 +487,24 @@ if(DO)
     hold on
     semilogy(tt, EigDO,'-','color', RGB3, LW, 1.5);
 end
+if(PIDO)
+    semilogy(tt(400:400:end), EigDOpi(:,400:400:end),'d','color', RGB5,'MarkerSize',3.5);
+    hold on
+    semilogy(tt, EigDOpi,'-.','color', RGB5, LW, 1.5);
+end
 if(DBO)
     semilogy(tt, EigDBO, '--','color', RGB2, LW, 1.5);
     hold on
     semilogy(tt(200:400:end), EigDBO(:,200:400:end),'x','color', RGB2, LW, 1.5);
 end
 
-h= zeros(4,1);
+h= zeros(5,1);
 h(1) = plot(NaN, NaN, '--k',LW, 1.5);
 h(2) = plot(NaN, NaN, ':','color', RGB1, LW, 2.5);
 h(3) = plot(NaN, NaN, '-d','color', RGB3, LW, 1.5,'MarkerSize',3.5);
-h(4) = plot(NaN, NaN, '--x','color', RGB2, LW, 1.5);
-legend(h,'Analytical', 'BO', 'DO', 'DBO');
+h(4) = plot(NaN, NaN, '-.d','color', RGB5, LW, 1.5,'MarkerSize',3.5);
+h(5) = plot(NaN, NaN, '--x','color', RGB2, LW, 1.5);
+legend(h,'Analytical','BO','DO', 'PI-DO', 'DBO');
 xlim([t0 tf])
 xlabel('Time')
 xticks([0 pi/2 pi 3*pi/2 2*pi 5*pi/2 3*pi])
@@ -411,7 +514,7 @@ set(gca, 'FontSize', 16, 'Fontname', 'Times New Roman');
 ylim([10^-12 10^2])
 fname = sprintf('ErrorPlots/%s/Eigenvalues',epname);
 saveas(gcf,fname,'epsc')
-
+saveas(gcf, fname,'fig')
 figure(5)
 if(BO)
     semilogy(tt,Error, ':','color', RGB1, LW, 2.5);
@@ -422,16 +525,22 @@ if(DO)
     hold on
     semilogy(tt, Errord,'-','color', RGB3, LW, 1.5);
 end
+if(PIDO)
+    semilogy(tt(400:400:end), Errordpi(400:400:end),'d','color', RGB5,'MarkerSize',3.5);
+    hold on
+    semilogy(tt, Errordpi,'-.','color', RGB5, LW, 1.5);
+end
 if(DBO)
     semilogy(tt, Errorp, '-','color', RGB2, LW, 1.5);
     hold on
     semilogy(tt(100:400:end), Errorp(100:400:end),'x','color', RGB2, LW, 1.5);
 end
-h= zeros(3,1);
+h= zeros(4,1);
 h(1) = plot(NaN, NaN, ':','color', RGB1, LW, 2.5);
 h(2) = plot(NaN, NaN, '-d','color', RGB3, LW, 1.5,'MarkerSize',3.5);
-h(3) = plot(NaN, NaN, '-x','color', RGB2, LW, 1.5);
-legend(h, 'BO', 'DO', 'DBO');
+h(3) = plot(NaN, NaN, '-.d','color', RGB5, LW, 1.5,'MarkerSize',3.5);
+h(4) = plot(NaN, NaN, '-x','color', RGB2, LW, 1.5);
+legend(h, 'BO','DO','PI-DO', 'DBO');
 title(['Mean error'])
 xlim([t0 tf])
 ylim([10^-12 10^-4])
@@ -442,6 +551,7 @@ ylabel('$\mathrm{L_2}$ error','interpreter', 'latex')
 set(gca, 'FontSize', 16, 'Fontname', 'Times New Roman');
 fname = sprintf('ErrorPlots/%s/MeanError',epname);
 saveas(gcf,fname,'epsc')
+saveas(gcf,fname,'fig')
 
 figure(6)
 if(BO)
@@ -453,16 +563,22 @@ if(DO)
     hold on
     semilogy(tt, Error_vard,'-','color', RGB3, LW, 1.5);
 end
+if(PIDO)
+    semilogy(tt(400:400:end), Error_vardpi(400:400:end),'d','color', RGB5,'MarkerSize',3.5);
+    hold on
+    semilogy(tt, Error_vardpi,'-.','color', RGB5, LW, 1.5);
+end
 if(DBO)
     semilogy(tt, Error_varp, '-','color', RGB2, LW, 1.5);
     hold on
     semilogy(tt(100:400:end), Error_varp(100:400:end),'x','color', RGB2, LW, 1.5);
 end
-h= zeros(3,1);
+h= zeros(4,1);
 h(1) = plot(NaN, NaN, ':','color', RGB1, LW, 2.5);
 h(2) = plot(NaN, NaN, '-d','color', RGB3, LW, 1.5,'MarkerSize',3.5);
-h(3) = plot(NaN, NaN, '-x','color', RGB2, LW, 1.5);
-legend(h, 'BO', 'DO', 'DBO');
+h(3) = plot(NaN, NaN, '-.d','color', RGB5, LW, 1.5,'MarkerSize',3.5);
+h(4) = plot(NaN, NaN, '-x','color', RGB2, LW, 1.5);
+legend(h,'BO', 'DO', 'PI-DO', 'DBO');
 title(['Variance error'])
 xlim([t0 tf])
 ylim([10^-12 10^-4])
@@ -473,4 +589,4 @@ ylabel('$\mathrm{L_2}$ error','interpreter', 'latex')
 set(gca, 'FontSize', 16, 'Fontname', 'Times New Roman');
 fname = sprintf('ErrorPlots/%s/VarError',epname);
 saveas(gcf,fname,'epsc')
-
+saveas(gcf,fname,'fig')
