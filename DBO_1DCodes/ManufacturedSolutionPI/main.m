@@ -25,7 +25,7 @@ global epsilon epname
 global tol_PI
 tol_PI = 10^-10;
 
-epsilon = 10^-3;
+epsilon = 10^-5;
 if(epsilon == 10^-5)
     epname = 'epsilon10_5';
 elseif(epsilon == 10^-3)
@@ -344,7 +344,7 @@ while n <= nTimeStep
     end
     
     % plot the spatial and stochastic basis
-    if(mod(n,20)==0)
+    if(mod(n,50)==0)
         % Compute the covaraince matrix for BO
         if(BO)
         C0 = zeros(N,N);
