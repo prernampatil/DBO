@@ -6,7 +6,8 @@ We present codes to solve stochastic partial differential equations using the dy
 
 <p align="center"><img src="/tex/e89203d4cbd3e48d17eb3e9847d258e3.svg?invert_in_darkmode&sanitize=true" align=middle width=381.80437844999994pt height=33.81208709999999pt/></p>
 <p align="center"><img src="/tex/32a4b61e1a4ac9bf33c73af722c2721a.svg?invert_in_darkmode&sanitize=true" align=middle width=240.34051635pt height=16.438356pt/></p>
-![MeanError](LinearAdvection/ErrorPlots/MeanError.pdf)
+
+![MeanError]\(https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/LinearAdvection/ErrorPlots/MeanError.pdf)
 
 **Case II: Stochastic Burgers' equation with manufactured solution** 
 
