@@ -4,7 +4,7 @@ We present codes to solve stochastic partial differential equations using the dy
 
 **Case I: Stochastic linear advection equation**
 
-<p align="center"><img src="/tex/6e55f23ee97951646c565ebda2147490.svg?invert_in_darkmode&sanitize=true" align=middle width=131.0965326pt height=33.81208709999999pt/></p>
+<p align="center"><img src="/tex/fb2081878da91ec057c2992ec6d57b1d.svg?invert_in_darkmode&sanitize=true" align=middle width=526.254267pt height=33.81208709999999pt/></p>
 
 **Case II: Stochastic Burgers' equation with manufactured solution** 
 
