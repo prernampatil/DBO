@@ -9,7 +9,7 @@ We present codes to solve stochastic partial differential equations using the dy
 
 **Case II: Stochastic Burgers' equation with manufactured solution** 
 
-<p align="center"><img src="/tex/44d12742168b4ed3896f58fdb3598e74.svg?invert_in_darkmode&sanitize=true" align=middle width=422.56638929999997pt height=35.77743345pt/></p>
+<p align="center"><img src="/tex/f4ef5de711506705c25727de60d8ef1b.svg?invert_in_darkmode&sanitize=true" align=middle width=471.8815332pt height=35.77743345pt/></p>
 <p align="center"><img src="/tex/7024eb9f8cc61b56e8dce619f795a035.svg?invert_in_darkmode&sanitize=true" align=middle width=251.28220095pt height=16.438356pt/></p>
 
 **Case III: Burgers' equation with stochastic forcing**
