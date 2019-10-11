@@ -16,6 +16,22 @@ We present codes to solve stochastic partial differential equations using the dy
 <p align="center"><img src="/tex/f4ef5de711506705c25727de60d8ef1b.svg?invert_in_darkmode&sanitize=true" align=middle width=471.8815332pt height=35.77743345pt/></p>
 <p align="center"><img src="/tex/7024eb9f8cc61b56e8dce619f795a035.svg?invert_in_darkmode&sanitize=true" align=middle width=251.28220095pt height=16.438356pt/></p>
 
+<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_3/Eigenvalues.png" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/Eigenvalues2PI.png" alt="Mean Error" width="430"/>
+
+<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_3/MeanError.png" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/MeanError2PI.png" alt="Mean Error" width="430"/>
+
+<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_3/VarError.png" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/VarError2PI.png" alt="Mean Error" width="430"/>
+
+<video width="320" height="200" controls preload> 
+    <source src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_3/SpatialModes.mov"></source> 
+    <source src="video.webm"></source> 
+</video>
+<video width="320" height="200" controls preload> 
+    <source src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_5/SpatialModes.mov"></source> 
+    <source src="video.webm"></source> 
+</video>
+
+
 
 
 **Case III: Burgers' equation with stochastic forcing**
