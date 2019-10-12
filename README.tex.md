@@ -30,12 +30,8 @@ $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/Eigenvalues2PI.png" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Eigenvalues  </th>
-    <th>Eigenvalues  </th> 
-  </tr>
-  <tr>
-    <th>$$ \epsilon = 10^{-3} $$ </th>
-    <th>$$ \epsilon = 10^{-5} $$ </th> 
+    <th>Eigenvalues <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-3}" border="0"/>  </th>
+    <th>Eigenvalues <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-5}" border="0"/>  </th> 
   </tr>
   </table>
   
@@ -45,8 +41,8 @@ $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/MeanError2PI.png" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Mean Error $$ \epsilon = 10^{-3} $$ </th>
-    <th>Mean Error $$ \epsilon = 10^{-5} $$ </th> 
+    <th>Mean Error <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-3}" border="0"/> </th>
+    <th>Mean Error <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-5}" border="0"/> </th> 
   </tr>
   </table>
   
@@ -56,8 +52,8 @@ $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/VarError2PI.png" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Variance Error $$ \epsilon = 10^{-3} $$ </th>
-    <th>Variance Error $$ \epsilon = 10^{-5} $$ </th> 
+    <th>Variance Error <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-3}" border="0"/> </th>
+    <th>Variance Error <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-5}" border="0"/> </th> 
   </tr>
   </table>
   
@@ -67,8 +63,8 @@ $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_5/SpatialModes.gif" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Spatial Modes $$ \epsilon = 10^{-3} $$ </th>
-    <th>Spatial Modes $$ \epsilon = 10^{-5} $$ </th> 
+    <th>Spatial Modes <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-3}" border="0"/> </th>
+    <th>Spatial Modes <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-5}" border="0"/> </th> 
   </tr>
   </table> 
 
@@ -78,8 +74,8 @@ $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Phasespace/epsilon10_5/Phasespace.gif" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Spatial Modes $$ \epsilon = 10^{-3} $$ </th>
-    <th>Spatial Modes $$ \epsilon = 10^{-5} $$ </th> 
+    <th>Spatial Modes <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-3}" border="0"/> </th>
+    <th>Spatial Modes <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-5}" border="0"/> </th> 
   </tr>
   </table> 
 
@@ -90,6 +86,3 @@ $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
 $$\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} &= \nu \frac{\partial^2 u}{\partial x^2} + \frac{(1+\xi)}{2} \sin(2\pi t),   \quad \qquad x \in [0, 2\pi] \quad \mbox{and} \quad  t\in[0,t_f]\\$$
 $$    u(x,0;\omega) &= g(x) \quad \qquad x \in [0, 2\pi]$$
 
-
-$$\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} &= \nu \frac{\partial^2 u}{\partial x^2} + \frac{(1+\xi)}{2} \sin(2\pi t),   \quad \qquad x \in [0, 2\pi] \quad \mbox{and} \quad  t\in[0,t_f]\\$$
-$$    u(x,0;\omega) &= g(x) \quad \qquad x \in [0, 2\pi]$$
