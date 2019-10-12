@@ -30,8 +30,12 @@ We present codes to solve stochastic partial differential equations using the dy
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/Eigenvalues2PI.png" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Eigenvalues \( \epsilon = 10^{-3} \) </th>
-    <th>Eigenvalues \( \epsilon = 10^{-5} \) </th> 
+    <th>Eigenvalues  </th>
+    <th>Eigenvalues  </th> 
+  </tr>
+  <tr>
+    <th>$$ \epsilon = 10^{-3} $$ </th>
+    <th>$$ \epsilon = 10^{-5} $$ </th> 
   </tr>
   </table>
   
