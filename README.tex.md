@@ -7,8 +7,16 @@ We present codes to solve stochastic partial differential equations using the dy
 $$ \frac{\partial u}{\partial t} + V(\omega) \frac{\partial u}{\partial x} = 0 \quad \qquad x \in [0, 2\pi] \quad \mbox{and} \quad  t\in[0,t_f],\\$$
 $$          u(x,0) &= \sin(x), \quad \qquad x \in [0, 2\pi]$$
 
-<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/LinearAdvection/ErrorPlots/MeanError.png" alt="Mean Error" width="430"/> <img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/LinearAdvection/ErrorPlots/VarError.png" alt="Variance Error" width="430"/>
-
+<table style="width:100%">
+  <tr>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/LinearAdvection/ErrorPlots/MeanError.png" alt="Mean Error" width="430"/></th>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/LinearAdvection/ErrorPlots/VarError.png" alt="Variance Error" width="430"/></th> 
+  </tr>
+  <tr>
+    <th>Mean Error</th>
+    <th>Variance Error</th> 
+  </tr>
+  </table>
 
 
 **Case II: Stochastic Burgers' equation with manufactured solution** 
@@ -16,16 +24,60 @@ $$          u(x,0) &= \sin(x), \quad \qquad x \in [0, 2\pi]$$
 $$ \frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} &= \nu \frac{\partial^2 u}{\partial x^2} + f(x,t; \omega), \quad \qquad x \in [0, 2\pi] \quad \mbox{and} \quad  t\in[0,t_f] \\$$
 $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
 
-<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_3/Eigenvalues.png" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/Eigenvalues2PI.png" alt="Mean Error" width="430"/>
+<table style="width:100%">
+  <tr>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_3/Eigenvalues.png" alt="Mean Error" width="430"/></th>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/Eigenvalues2PI.png" alt="Variance Error" width="430"/></th> 
+  </tr>
+  <tr>
+    <th>Eigenvalues $$ \epsilon = 10^{-3} $$ </th>
+    <th>Eigenvalues $$ \epsilon = 10^{-5} $$ </th> 
+  </tr>
+  </table>
+  
+  <table style="width:100%">
+  <tr>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_3/MeanError.png" alt="Mean Error" width="430"/></th>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/MeanError2PI.png" alt="Variance Error" width="430"/></th> 
+  </tr>
+  <tr>
+    <th>Mean Error $$ \epsilon = 10^{-3} $$ </th>
+    <th>Mean Error $$ \epsilon = 10^{-5} $$ </th> 
+  </tr>
+  </table>
+  
+  <table style="width:100%">
+  <tr>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_3/VarError.png" alt="Mean Error" width="430"/></th>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/VarError2PI.png" alt="Variance Error" width="430"/></th> 
+  </tr>
+  <tr>
+    <th>Variance Error $$ \epsilon = 10^{-3} $$ </th>
+    <th>Variance Error $$ \epsilon = 10^{-5} $$ </th> 
+  </tr>
+  </table>
+  
+  <table style="width:100%">
+  <tr>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_3/SpatialModes.gif" alt="Mean Error" width="430"/></th>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_5/SpatialModes.gif" alt="Variance Error" width="430"/></th> 
+  </tr>
+  <tr>
+    <th>Spatial Modes $$ \epsilon = 10^{-3} $$ </th>
+    <th>Spatial Modes $$ \epsilon = 10^{-5} $$ </th> 
+  </tr>
+  </table> 
 
-<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_3/MeanError.png" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/MeanError2PI.png" alt="Mean Error" width="430"/>
-
-<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_3/VarError.png" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/VarError2PI.png" alt="Mean Error" width="430"/>
-
-<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_3/SpatialModes.gif" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_5/SpatialModes.gif" alt="Mean Error" width="430"/>
-
-<img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Phasespace/epsilon10_3/Phasespace.gif" alt="Mean Error" width="430"/><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Phasespace/epsilon10_5/Phasespace.gif" alt="Mean Error" width="430"/>
-
+<table style="width:100%">
+  <tr>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Phasespace/epsilon10_3/Phasespace.gif" alt="Mean Error" width="430"/></th>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Phasespace/epsilon10_5/Phasespace.gif" alt="Variance Error" width="430"/></th> 
+  </tr>
+  <tr>
+    <th>Spatial Modes $$ \epsilon = 10^{-3} $$ </th>
+    <th>Spatial Modes $$ \epsilon = 10^{-5} $$ </th> 
+  </tr>
+  </table> 
 
 
 
