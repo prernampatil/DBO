@@ -86,3 +86,16 @@ $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
 $$\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} &= \nu \frac{\partial^2 u}{\partial x^2} + \frac{(1+\xi)}{2} \sin(2\pi t),   \quad \qquad x \in [0, 2\pi] \quad \mbox{and} \quad  t\in[0,t_f]\\$$
 $$    u(x,0;\omega) &= g(x) \quad \qquad x \in [0, 2\pi]$$
 
+<p align="center">
+  <img width="430" src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/StochasticForcing/ErrorPlots/N9LongTime_nu_004_Eigenvalues.png"> </p>
+
+<table style="width:100%">
+  <tr>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/StochasticForcing/ErrorPlots/N9LongTime_nu_004_ErrorMean.png" alt="Mean Error" width="430"/></th>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/StochasticForcing/ErrorPlots/N9LongTime_nu_004_ErrorVariance.png" alt="Variance Error" width="430"/></th> 
+  </tr>
+  <tr>
+    <th>Mean Error</th>
+    <th>Variance Error</th> 
+  </tr>
+  </table>
