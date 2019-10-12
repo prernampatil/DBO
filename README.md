@@ -30,12 +30,8 @@ We present codes to solve stochastic partial differential equations using the dy
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/Eigenvalues2PI.png" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Eigenvalues  </th>
-    <th>Eigenvalues  </th> 
-  </tr>
-  <tr>
-    <th>$$ \epsilon = 10^{-3} $$ </th>
-    <th>$$ \epsilon = 10^{-5} $$ </th> 
+    <th>Eigenvalues <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-3}" border="0"/>  </th>
+    <th>Eigenvalues <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-5}" border="0"/>  </th> 
   </tr>
   </table>
   
@@ -45,8 +41,8 @@ We present codes to solve stochastic partial differential equations using the dy
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/MeanError2PI.png" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Mean Error $$ \epsilon = 10^{-3} $$ </th>
-    <th>Mean Error $$ \epsilon = 10^{-5} $$ </th> 
+    <th>Mean Error <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-3}" border="0"/> </th>
+    <th>Mean Error <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-5}" border="0"/> </th> 
   </tr>
   </table>
   
@@ -56,8 +52,8 @@ We present codes to solve stochastic partial differential equations using the dy
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/VarError2PI.png" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Variance Error $$ \epsilon = 10^{-3} $$ </th>
-    <th>Variance Error $$ \epsilon = 10^{-5} $$ </th> 
+    <th>Variance Error <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-3}" border="0"/> </th>
+    <th>Variance Error <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-5}" border="0"/> </th> 
   </tr>
   </table>
   
@@ -67,8 +63,8 @@ We present codes to solve stochastic partial differential equations using the dy
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Basisplots/epsilon10_5/SpatialModes.gif" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Spatial Modes $$ \epsilon = 10^{-3} $$ </th>
-    <th>Spatial Modes $$ \epsilon = 10^{-5} $$ </th> 
+    <th>Spatial Modes <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-3}" border="0"/> </th>
+    <th>Spatial Modes <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-5}" border="0"/> </th> 
   </tr>
   </table> 
 
@@ -78,8 +74,8 @@ We present codes to solve stochastic partial differential equations using the dy
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/Phasespace/epsilon10_5/Phasespace.gif" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Spatial Modes $$ \epsilon = 10^{-3} $$ </th>
-    <th>Spatial Modes $$ \epsilon = 10^{-5} $$ </th> 
+    <th>Spatial Modes <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-3}" border="0"/> </th>
+    <th>Spatial Modes <img src="http://latex.codecogs.com/svg.latex?\epsilon = 10^{-5}" border="0"/> </th> 
   </tr>
   </table> 
 
@@ -90,6 +86,16 @@ We present codes to solve stochastic partial differential equations using the dy
 <p align="center"><img src="/tex/f0b80e3dd2ab0abdb6d34bfda401b06e.svg?invert_in_darkmode&sanitize=true" align=middle width=521.3261954999999pt height=35.77743345pt/></p>
 <p align="center"><img src="/tex/477118064dc224717939754fedd32ed6.svg?invert_in_darkmode&sanitize=true" align=middle width=239.4100929pt height=16.438356pt/></p>
 
+<p align="center">
+  <img width="430" src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/StochasticForcing/ErrorPlots/N9LongTime_nu_004_Eigenvalues.png"> </p>
 
-<p align="center"><img src="/tex/f0b80e3dd2ab0abdb6d34bfda401b06e.svg?invert_in_darkmode&sanitize=true" align=middle width=521.3261954999999pt height=35.77743345pt/></p>
-<p align="center"><img src="/tex/477118064dc224717939754fedd32ed6.svg?invert_in_darkmode&sanitize=true" align=middle width=239.4100929pt height=16.438356pt/></p>
+<table style="width:100%">
+  <tr>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/StochasticForcing/ErrorPlots/N9LongTime_nu_004_ErrorMean.png" alt="Mean Error" width="430"/></th>
+    <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/StochasticForcing/ErrorPlots/N9LongTime_nu_004_ErrorVariance.png" alt="Variance Error" width="430"/></th> 
+  </tr>
+  <tr>
+    <th>Mean Error</th>
+    <th>Variance Error</th> 
+  </tr>
+  </table>
