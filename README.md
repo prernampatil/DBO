@@ -89,3 +89,7 @@ We present codes to solve stochastic partial differential equations using the dy
 
 <p align="center"><img src="/tex/f0b80e3dd2ab0abdb6d34bfda401b06e.svg?invert_in_darkmode&sanitize=true" align=middle width=521.3261954999999pt height=35.77743345pt/></p>
 <p align="center"><img src="/tex/477118064dc224717939754fedd32ed6.svg?invert_in_darkmode&sanitize=true" align=middle width=239.4100929pt height=16.438356pt/></p>
+
+
+<p align="center"><img src="/tex/f0b80e3dd2ab0abdb6d34bfda401b06e.svg?invert_in_darkmode&sanitize=true" align=middle width=521.3261954999999pt height=35.77743345pt/></p>
+<p align="center"><img src="/tex/477118064dc224717939754fedd32ed6.svg?invert_in_darkmode&sanitize=true" align=middle width=239.4100929pt height=16.438356pt/></p>
