@@ -89,3 +89,7 @@ $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
 
 $$\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} &= \nu \frac{\partial^2 u}{\partial x^2} + \frac{(1+\xi)}{2} \sin(2\pi t),   \quad \qquad x \in [0, 2\pi] \quad \mbox{and} \quad  t\in[0,t_f]\\$$
 $$    u(x,0;\omega) &= g(x) \quad \qquad x \in [0, 2\pi]$$
+
+
+$$\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} &= \nu \frac{\partial^2 u}{\partial x^2} + \frac{(1+\xi)}{2} \sin(2\pi t),   \quad \qquad x \in [0, 2\pi] \quad \mbox{and} \quad  t\in[0,t_f]\\$$
+$$    u(x,0;\omega) &= g(x) \quad \qquad x \in [0, 2\pi]$$
