@@ -30,8 +30,8 @@ $$     u(x,0;\omega) &= g(x),    \quad \qquad x \in [0, 2\pi]. $$
     <th><img src="https://github.com/ppatil1708/DBO/blob/master/DBO_1DCodes/ManufacturedSolutionPI/ErrorPlots/eps_5/Eigenvalues2PI.png" alt="Variance Error" width="430"/></th> 
   </tr>
   <tr>
-    <th>Eigenvalues $ \epsilon = 10^{-3} $ </th>
-    <th>Eigenvalues $ \epsilon = 10^{-5} $ </th> 
+    <th>Eigenvalues \( \epsilon = 10^{-3} \) </th>
+    <th>Eigenvalues \( \epsilon = 10^{-5} \) </th> 
   </tr>
   </table>
   
