@@ -131,10 +131,10 @@ Error_vard = zeros(1, nTimeStep);
 % PI-DO
 Errordpi = zeros(1, nTimeStep);
 Error_vardpi = zeros(1, nTimeStep);
-%DBO
+%BO
 Error = zeros(1, nTimeStep);
 Error_var = zeros(1, nTimeStep);
-%BO
+%DBO
 Errorp = zeros(1, nTimeStep);
 Error_varp = zeros(1, nTimeStep);
 % Declare variables for Eigenvalues
